@@ -109,13 +109,9 @@
 		};
 
 		// Send message to Service Worker
-		if ('serviceWorker' in navigator) {
-			try {
-				navigator.serviceWorker.controller.postMessage(data);
-			} catch (e) {
-				postMsg(data);
-			}
-		} else {
+		try {
+			navigator.serviceWorker.controller.postMessage(data);
+		} catch (e) {
 			postMsg(data);
 		}
 
