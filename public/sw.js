@@ -8,7 +8,7 @@ var urlsToCache = [
 
 var CACHE_NAME = 'demo-v1';
 
-self.addEventListener('activate', function (event) {
+self.addEventListener('install', function (event) {
 	// Perform install steps
 	event.waitUntil(
 		caches.open(CACHE_NAME)
