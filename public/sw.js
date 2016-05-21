@@ -48,7 +48,7 @@ self.addEventListener('message', function (event) {
 	postMsgs();
 });
 
-function postMsgs() {
+self.addEventListener('sync', function postMsgs() {
 	console.log(messageQueue);
 	if (messageQueue.length > 0) {
 		fetch('/messages', {
@@ -62,9 +62,4 @@ function postMsgs() {
 				messageQueue = [];
 			});
 	}
-}
-
-/*
- For every 3 seconds check queue and send outstanding messages.
- */
-self.addEventListener('sync', postMsgs);
+});
