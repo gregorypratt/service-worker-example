@@ -67,4 +67,4 @@ function postMsgs() {
 /*
  For every 3 seconds check queue and send outstanding messages.
  */
-setInterval(postMsgs, 3000);
+self.addEventListener('sync', postMsgs);
